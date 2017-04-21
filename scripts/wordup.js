@@ -146,7 +146,7 @@ function render() {
 
     // Set the value of the textbox
     $("#textbox").val(model.currentAttempt).focus();
-    // TODO 3
+    // TODO 3 (DONE)
     // Give focus to the textbox.
 
 
