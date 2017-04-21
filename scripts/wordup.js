@@ -94,9 +94,15 @@ function checkIfWordIsReal(word) {
             }
             console.log(theAnswer);
 
-            // TODO 15
+            // TODO 15 (DONE)
             // Update the corresponding wordSubmission in the model
-
+            var indexOfWord =
+                 model.wordSubmissions.findIndex(
+                       function(elem, index, array) {
+                         return elem.word === word;
+                       }
+            );
+            model.wordSubmissions[indexOfWord].isRealWord = theAnswer
 
             // re-render
             render();
