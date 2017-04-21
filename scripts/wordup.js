@@ -127,9 +127,12 @@ function render() {
     // GAME -------------------------------------
 
     // clear stuff
+    $("textbox").removeClass("bad-attempt");
+    $("span").remove() // for the fix me
+    $("#textbox").attr("disabled", false);
     $("#allowed-letters").empty();
     $("#word-submissions").empty();
-    // TODO 10
+    // TODO 10 (DONE)
     // Add a few things to the above code block (underneath "// clear stuff").
 
     // FIXME 2FX
