@@ -239,11 +239,15 @@ $(document).ready(function() {
         render();
     });
 
-    // TODO 6
+    // TODO 6 (DONE)
     // Add another event handler with a callback function.
     // When the textbox content changes,
     // update the .currentAttempt property of the model and re-render
-
+    $("#textbox").on("input", function() {
+        var textval = $("#textbox").val()
+        model.currentAttempt = textval
+        render();
+    });
 
     // when the form is submitted
     $("#word-attempt-form").submit(function(evt) {
