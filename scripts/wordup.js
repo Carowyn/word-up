@@ -159,9 +159,12 @@ function render() {
         // show the disallowed letters underneath
         var redLetterChips = disallowedLetters.map(disallowedLetterChip);
 
-        // TODO 8
-        // append the red letter chips to the form
+        // FIXME 1FX
+        // Add a DIV to house the redLetterChips
 
+        // TODO 8 (DONE)
+        // append the red letter chips to the form
+        $("#word-attempt-form").append(redLetterChips);
     }
 
     // if the game is over
