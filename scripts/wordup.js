@@ -234,9 +234,9 @@ function wordSubmissionChip(wordSubmission) {
         // TODO 18
         // give the scoreChip appropriate css classes
 
-        // TODO 16
+        // TODO 16 (DONE)
         // append scoreChip into wordChip
-
+        wordChip.append(scoreChip);
     }
 
     return wordChip;
