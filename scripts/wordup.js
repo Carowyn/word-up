@@ -282,10 +282,15 @@ var scrabblePointsForEachLetter = {
  * meaning it is not a member of the .allowedLetters list from the current model
  */
 function isDisallowedLetter(letter) {
-    // TODO 7
+    // TODO 7 (DONE)
     // This should return true if the letter is not an element of
     // the .allowedLetters list in the model
-    return false;
+    var inList = model.allowedLetters.indexOf(letter)
+    if (inList === -1) {
+        return true;
+    } else if (inList !== -1) {
+        return false;
+    }
 }
 
 /**
