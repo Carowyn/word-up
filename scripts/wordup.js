@@ -318,10 +318,15 @@ function disallowedLettersInWord(word) {
  * i.e. the word does not contain any disallowed letters
  */
 function containsOnlyAllowedLetters(word) {
-    // TODO 12
+    // TODO 12 (DONE)
     // Return the actual answer.
-    return true;
+    if ($.isEmptyObject(disallowedLettersInWord(word))) {
+        return word;
+    } else {
+        return false;
+    }
 }
+
 
 /**
  * Returns a list of 7 randomly chosen letters
