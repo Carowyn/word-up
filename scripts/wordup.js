@@ -115,7 +115,7 @@ function render() {
 
     // TODO 2 (DONE)
     // Update the curent time remaining on the scoreboard.
-    $("#time-remaining").text(model.secondsRemaining); 
+    $("#time-remaining").text(model.secondsRemaining);
 
 
     // if the game has not started yet, just hide the #game container and exit
@@ -145,7 +145,7 @@ function render() {
 
 
     // Set the value of the textbox
-    $("#textbox").val(model.currentAttempt);
+    $("#textbox").val(model.currentAttempt).focus();
     // TODO 3
     // Give focus to the textbox.
 
