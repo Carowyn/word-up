@@ -132,6 +132,8 @@ function render() {
     // TODO 10
     // Add a few things to the above code block (underneath "// clear stuff").
 
+    // FIXME 2FX
+    // Use new DIV for redLetterChips in place of the span
 
     // reveal the #game container
     $("#game").show();
@@ -170,9 +172,10 @@ function render() {
     // if the game is over
     var gameOver = model.secondsRemaining <= 0
     if (gameOver) {
-        // TODO 9
+        // TODO 9 (DONE)
         // disable the text box and clear its contents
-
+        $("#textbox").val("");
+        $("#textbox").attr("disabled", true)
     }
 }
 
