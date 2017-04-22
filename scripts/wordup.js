@@ -51,15 +51,23 @@ function endGame() {
  */
 function addNewWordSubmission(word) {
     // Do we already have a wordSubmission with this word?
-    // TODO 21
+    // TODO 21 (NOT finished)
     // replace the hardcoded 'false' with the real answer
-    var alreadyUsed = false;
+    var wordsSubmitted = model.wordSubmissions.indexOf(word)
+        if (wordsSubmitted === -1) {
+            alreadyUsed = false;
+        } else if (wordsSubmitted !== -1) {
+            alreadyUsed = true;
+        }
+
 
     // if the word is valid and hasn't already been used, add it
     if (containsOnlyAllowedLetters(word) && alreadyUsed == false) {
         model.wordSubmissions.push({ word: word });
         // and now we must also determine whether this is actually a real word
         checkIfWordIsReal(word);
+    } else if (alreadyUsed == true) {
+        // TILE STLL SHOWS UP, JUST WITHOUT SCORE
     }
 }
 
@@ -103,6 +111,7 @@ function checkIfWordIsReal(word) {
                        }
             );
             model.wordSubmissions[indexOfWord].isRealWord = theAnswer
+            // maybe--->model.wordSubmissions.push({ word: word });
 
             // re-render
             render();
