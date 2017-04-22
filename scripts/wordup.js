@@ -384,11 +384,25 @@ function wordScore(word) {
     // split the word into a list of letters
     var letters = word.split("");
 
-    // TODO 19
+    // TODO 19 (DONE)
     // Replace the empty list below.
     // Map the list of letters into a list of scores, one for each letter.
     var letterScores = [];
+    for (var i = 0; i < letters.length; i++) {
+        var letScore = letterScore(letters[i])
+        letterScores.push(letScore)
+    }
 
+/*
+for (var i = 0; i < total; i++) {
+    index = Math.floor(Math.random() * items.length);
+    selectedItems.push(items[index]);
+    items.splice(index, 1);
+}
+*/
+/*
+You have a list of letters in a variable called letters. You must map that list of letters into a list of scores, one for each letter, and assign that list into the new variable, wordScores.
+*/
     // return the total sum of the letter scores
     return letterScores.reduce(add, 0);
 }
