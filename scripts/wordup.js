@@ -393,16 +393,6 @@ function wordScore(word) {
         letterScores.push(letScore)
     }
 
-/*
-for (var i = 0; i < total; i++) {
-    index = Math.floor(Math.random() * items.length);
-    selectedItems.push(items[index]);
-    items.splice(index, 1);
-}
-*/
-/*
-You have a list of letters in a variable called letters. You must map that list of letters into a list of scores, one for each letter, and assign that list into the new variable, wordScores.
-*/
     // return the total sum of the letter scores
     return letterScores.reduce(add, 0);
 }
@@ -423,12 +413,16 @@ function currentScore() {
         }
     });
 
-    // TODO 20
+    // TODO 20 (DONE)
     // return the total sum of the word scores
-    return 0;
+    return wordScores.reduce(add, 0);
 }
 
 
+/*
+// return the total sum of the letter scores
+return letterScores.reduce(add, 0);
+*/
 // ----------------- UTILS -----------------
 
 /**
