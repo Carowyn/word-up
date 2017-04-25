@@ -49,24 +49,58 @@ function endGame() {
  * Refrains from adding a new entry if the model already contains
  * a wordSubmission whose word is the same
  */
+
+var alreadyUsed = false
 function addNewWordSubmission(word) {
     // Do we already have a wordSubmission with this word?
-    // TODO 21 (NOT finished)
+    // TODO 21 (DONE)
     // replace the hardcoded 'false' with the real answer
-    var wordsSubmitted = model.wordSubmissions.indexOf(word)
-        if (wordsSubmitted === -1) {
-            alreadyUsed = false;
-        } else if (wordsSubmitted !== -1) {
+    var submissionList = model.wordSubmissions
+
+    function isIn (element, index, array) {
+        if (element.word === word) {
             alreadyUsed = true;
+        } else if (element.word !== word) {
+            alreadyUsed = false;
         }
 
+    }
+submissionList.forEach(isIn)
+console.log(alreadyUsed)
+
+
+    // var submissionList = model.wordSubmissions
+    // var isIn = submissionList.indexOf(word)
+    // var alreadyUsed = false;
+    // console.log(submissionList)
+    // console.log(isIn)
+    //
+    // if (isIn === -1) {
+    //     alreadyUsed = false;
+    // } else if (isIn !== -1) {
+    //     alreadyUsed = true;
+    // }
+    // console.log(alreadyUsed)
+    // if -1 its not in there
+
+
+    // var wordsSubmitted = model.wordSubmissions.indexOf(word)
+    //     if (wordsSubmitted === -1) {
+    //         alreadyUsed = false;
+    //     } else if (wordsSubmitted !== -1) {
+    //         alreadyUsed = true;
+    //     }
+
+/*
+ a) loop over the wordSubmissions "dictionary", comparing the value of each wordSubmission's "word" property's value (i.e., model.wordSubmissions[i].word) to your current word, or
+*/
 
     // if the word is valid and hasn't already been used, add it
-    if (containsOnlyAllowedLetters(word) && alreadyUsed == false) {
+    if (containsOnlyAllowedLetters(word) && alreadyUsed === false) {
         model.wordSubmissions.push({ word: word });
         // and now we must also determine whether this is actually a real word
         checkIfWordIsReal(word);
-    } else if (alreadyUsed == true) {
+    } else if (alreadyUsed === true) {
         // TILE STLL SHOWS UP, JUST WITHOUT SCORE
     }
 }
@@ -100,7 +134,6 @@ function checkIfWordIsReal(word) {
             } else {
                 theAnswer = false;
             }
-            console.log(theAnswer);
 
             // TODO 15 (DONE)
             // Update the corresponding wordSubmission in the model
@@ -149,16 +182,14 @@ function render() {
     // GAME -------------------------------------
 
     // clear stuff
-    $("textbox").removeClass("bad-attempt");
-    $("span").remove() // for the fix me
+    $("#textbox").removeClass("bad-attempt");
+    console.log("removed")
+    $("span").remove()
     $("#textbox").attr("disabled", false);
     $("#allowed-letters").empty();
     $("#word-submissions").empty();
     // TODO 10 (DONE)
     // Add a few things to the above code block (underneath "// clear stuff").
-
-    // FIXME 2FX
-    // Use new DIV for redLetterChips in place of the span
 
     // reveal the #game container
     $("#game").show();
@@ -184,12 +215,10 @@ function render() {
     if (disallowedLetters.length > 0) {
         // restyle the textbox
         $("#textbox").addClass("bad-attempt");
+        console.log("added")
 
         // show the disallowed letters underneath
         var redLetterChips = disallowedLetters.map(disallowedLetterChip);
-
-        // FIXME 1FX
-        // Add a DIV to house the redLetterChips
 
         // TODO 8 (DONE)
         // append the red letter chips to the form
@@ -242,7 +271,7 @@ function wordSubmissionChip(wordSubmission) {
         score = wordScore(wordSubmission.word)
         if (wordSubmission.isRealWord === true) {
             scoreChip = $("<span></span>").text(score).css({
-                "background-color": "#2654de", // blue background
+                "background-color": "#617cd0", // blue background
                 "font-size": "20px", // smaller font size
                 "margin": "5px", // separation from text
             });
